@@ -68,4 +68,4 @@ Type your name, pick a role and sign in. You'll go to the dashboard for that rol
 
 ## Resetting the data
 
-The first time you open the app, it loads sample events. Any changes you make are saved in your browser. To go back to the sample data, use the **Reset** option in the dashboard. You can also clear the site's `localStorage` (the `ccData` and `ccUser` keys) in your browser's developer tools.
+The first time you open the app, it loads sample events. Any changes you make are saved in your browser. To go back to the sample data, click **Reset demo data** in the dashboard. You can also clear the site's `localStorage` (the `ccData` and `ccUser` keys) in your browser's developer tools.
