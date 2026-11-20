@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app">
+    <!-- Left sidebar: logo + menu (menu items are added by app.js) -->
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="logo-icon.jpg" alt="">
+        <span>Campus<b>Connect</b></span>
+      </div>
+      <nav id="nav"></nav>
+    </aside>
+
+    <div class="main">
+      <!-- Top bar: search, main action button and profile menu -->
+      <header class="topbar">
+        <div class="search">
+          <i data-lucide="search"></i>
+          <input id="searchInput" type="search" placeholder="Search events..." oninput="onSearch()">
+        </div>
+
+        <div class="topbar-right">
+          <button id="topAction" class="btn btn-primary"></button>
+
+          <div class="profile" onclick="toggleMenu()">
+            <div class="avatar" id="avatar"></div>
+            <div class="profile-text">
+              <strong id="userName"></strong>
+              <span id="userRole"></span>
+            </div>
+            <i data-lucide="chevron-down"></i>
+
+            <div class="dropdown" id="dropdown">
+              <button onclick="goTo('profile')"><i data-lucide="user-round"></i> My Profile</button>
+              <button onclick="logOut()"><i data-lucide="log-out"></i> Log Out</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Every page is drawn inside this box by app.js -->
+      <main id="content" class="content"></main>
+    </div>
+  </div>
+
+  <!-- Small message that pops up after an action -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Lucide icon library, then our own code -->
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+  <script src="data.js"></script>   <!-- the data + save/load -->
+  <script src="app.js"></script>    <!-- shared code for all roles -->
+  <script src="admin.js"></script>  <!-- Role 1: Admin -->
+  <script src="attendee.js"></script>  <!-- Role 2: Attendee -->
+  <script src="volunteer.js"></script> <!-- Role 3: Volunteer -->
+  <script src="vendor.js"></script>    <!-- Role 4: Vendor -->
+  <script>startApp();</script>
+</body>
+</html>

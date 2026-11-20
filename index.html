@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusConnect - Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+
+  <main class="login-card">
+    <img src="logo.jpg" alt="CampusConnect logo" class="login-logo">
+    <p class="login-tagline">Campus Events, Made Simple.</p>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="nameInput">Your name</label>
+        <input id="nameInput" type="text" placeholder="e.g. Ahmed Khan" required>
+      </div>
+
+      <p class="label">Sign in as</p>
+      <div class="role-grid">
+        <label class="role-option">
+          <input type="radio" name="role" value="admin" checked>
+          <span><strong>Admin</strong>Create and manage events</span>
+        </label>
+        <label class="role-option">
+          <input type="radio" name="role" value="attendee">
+          <span><strong>Attendee</strong>Discover and register</span>
+        </label>
+        <label class="role-option">
+          <input type="radio" name="role" value="volunteer">
+          <span><strong>Volunteer</strong>Claim and finish tasks</span>
+        </label>
+        <label class="role-option">
+          <input type="radio" name="role" value="vendor">
+          <span><strong>Vendor</strong>Claim and set up stalls</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-full">Continue</button>
+    </form>
+
+    <p class="login-hint">Demo tip: sign in as Attendee with the name <b>Ahmed Khan</b> to see existing tickets,
+      or as Volunteer with <b>Usman Tariq</b> to see claimed tasks,
+      or as Vendor with <b>Zain Traders</b> to see a claimed stall.</p>
+
+  </main>
+
+  <script>
+    // When the form is submitted, remember the user and open the dashboard.
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault(); // stop the page from reloading
+
+      const name = document.getElementById("nameInput").value.trim();
+      const role = document.querySelector('input[name="role"]:checked').value;
+
+      localStorage.setItem("ccUser", JSON.stringify({ name: name, role: role }));
+      window.location.href = "dashboard.html";
+    });
+  </script>
+</body>
+</html>
